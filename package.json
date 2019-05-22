@@ -1,0 +1,34 @@
+{
+  "name": "online-queuing-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex880627/online-queuing-app-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex880627/online-queuing-app-backend/issues"
+  },
+  "homepage": "https://github.com/Alex880627/online-queuing-app-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb-promise": "0.0.4",
+    "mongoose": "^5.5.10",
+    "nodemailer": "^6.1.1",
+    "nodemon": "^1.19.0"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0"
+  }
+}
