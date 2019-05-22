@@ -9,6 +9,7 @@ const app = express();
 const cors = require('cors');
 const router = require('./routes/index');
 
+
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
