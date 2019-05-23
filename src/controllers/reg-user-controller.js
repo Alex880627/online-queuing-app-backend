@@ -1,9 +1,9 @@
 const {
   userValidation,
   regUserService
-} = require("../services/reg-services");
+} = require("../services/reg-user-services");
 
-const registerUser = (req, res) => {
+const userRegistration= (req, res) => {
   const { body } = req;
   if (
     body.firstname === "" ||
@@ -43,4 +43,4 @@ const registerUser = (req, res) => {
 
 
 
-module.exports = registerUser;
+module.exports = userRegistration;

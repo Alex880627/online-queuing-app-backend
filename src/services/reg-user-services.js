@@ -1,6 +1,6 @@
 const User = require("../models/user-model");
 const bcrypt = require('bcrypt');
-const { sendRegistrationEmail } = require('../services/mail-services')
+const { sendRegistrationEmail } = require('./mail-services')
 
 const userValidation = data => {
   return new Promise((resolve, reject) => {

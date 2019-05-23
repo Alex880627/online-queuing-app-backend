@@ -14,7 +14,7 @@ const sendRegistrationEmail = ( input, dataFromMongo )=> {
     to: `${input.email}`,
     subject: "Successful registration!",
     html: `<h1 style="text-align:center">Dear ${
-      dataFromMongo.username
+      dataFromMongo.username || dataFromMongo.companyname
     }!</h1><hr>
     <p style="text-align:center">Welcome on RESTfull IPA!</p>
     <p style="text-align:center">Please login with your e-mail address and password!</p>
