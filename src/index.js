@@ -14,6 +14,13 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
+mongoose.connect(process.env.CONNECTION_STRING, { useNewUrlParser: true });
+const testDB = mongoose.connection;
+testDB.on('error', console.error.bind(console, 'connection error:')); //eslint-disable-line
+testDB.once('open', () => {
+  console.log('Restfull ipa DB connected'); //eslint-disable-line
+});
+
 app.listen(PORT, () => {
   console.log(`Port is listening on ${PORT}`); // eslint-disable-line
 });
