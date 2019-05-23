@@ -4,7 +4,7 @@ const loginUser = (req, res) => {
   const { body } = req;
   if (
     (body.password === "" ||
-    body.password === undefined ) ||
+      body.password === undefined) ||
     (body.email === "" || body.email === undefined)
   ) {
     res.status(500).json({
@@ -22,10 +22,10 @@ const loginUser = (req, res) => {
           token
         })
       )
-      .catch(err =>  res.status(500).json({
+      .catch(err => res.status(500).json({
         message: err.msg
       }))
   }
 };
 
-module.exports = loginUser;
+module.exports = { loginUser };
