@@ -3,7 +3,7 @@ var jwt = require("jsonwebtoken");
 const generateJwt = ( data, mongoData )=> {  
   const token = jwt.sign(
     { email: data.email, username: mongoData.username, firstname: mongoData.firstname, lastname:mongoData.lastname },
-    process.env.JWT_KEY,
+    process.env.JWT_KEY, // password as agreed
     {
       expiresIn: "1d"
     }
