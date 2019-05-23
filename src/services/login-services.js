@@ -1,11 +1,10 @@
-const User = require("../models/user-model");
 const { generateJwt } = require("./jwt-services");
 const bcrypt = require("bcrypt");
 
-const login = data => {
+const loginAndAuth = (data, model) => {
   return new Promise((resolve, reject) => {
-    User.findOne({ email: data.email }, (nameErr, nameResult) => {
-      if (nameResult !== null) {
+    model.findOne({ email: data.email }, (nameErr, nameResult) => {
+      if (nameResult) {
         bcrypt.compare(data.password, nameResult.password, function(err, res) {
           if (res) {
             const token = generateJwt(data, nameResult);
@@ -18,8 +17,14 @@ const login = data => {
           }
         });
       }
+      else {
+        nameErr = {
+          msg: "Invalid e-mail or password!"
+        };
+        return reject(nameErr);
+      }
     });
   });
 };
 
-module.exports = { login };
+module.exports = { loginAndAuth };

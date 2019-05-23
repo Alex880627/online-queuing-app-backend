@@ -1,4 +1,5 @@
-const { login } = require("../services/login-services");
+const { loginAndAuth } = require("../services/login-services");
+const { User } = require("../models/user-model");
 
 const loginUser = (req, res) => {
   const { body } = req;
@@ -15,7 +16,7 @@ const loginUser = (req, res) => {
       message: "Invalid e-mail addres!"
     });
   } else {
-    login(body)
+    loginAndAuth(body, User)
       .then(token =>
         res.status(201).json({
           message: "Succesful login!",
@@ -28,4 +29,4 @@ const loginUser = (req, res) => {
   }
 };
 
-module.exports = loginUser;
+module.exports = { loginUser };

@@ -9,8 +9,9 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendRegistrationEmail = ( input, dataFromMongo )=> {
+  console.log(input, dataFromMongo);
   const mailOptions = {
-    from: "illes.alexander88@gmail.com",
+    from: "kozosmarika@gmail.com",
     to: `${input.email}`,
     subject: "Successful registration!",
     html: `<h1 style="text-align:center">Dear ${
@@ -22,9 +23,9 @@ const sendRegistrationEmail = ( input, dataFromMongo )=> {
   };
   transporter.sendMail(mailOptions, function(err, info) {
     if (err) {
-      return err;
+      return console.log(err);
     } else {
-      return info;
+      return console.log(info);
     }
   });
 };
