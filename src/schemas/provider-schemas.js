@@ -37,7 +37,7 @@ const providerSchema = new mongoose.Schema({
   password: { type: String, required: true, trim: true },
   email: { type: String, required: true, trim: true },
   registerdate: { type: Date, default: Date.now },
-  services: [serviceSchema],
+  services: [], // service IDs go here
 });
 
 module.exports = {

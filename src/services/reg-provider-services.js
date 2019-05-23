@@ -1,4 +1,4 @@
-const Provider = require("../models/provider-model");
+const Provider = require("../models/provider-models");
 const bcrypt = require('bcrypt');
 const { sendRegistrationEmail } = require('./mail-services')
 
