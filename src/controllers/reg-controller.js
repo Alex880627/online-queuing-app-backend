@@ -1,7 +1,7 @@
 const {
   userValidation,
   regUserService
-} = require("../services/register-services");
+} = require("../services/reg-services");
 
 const registerUser = (req, res) => {
   const { body } = req;
