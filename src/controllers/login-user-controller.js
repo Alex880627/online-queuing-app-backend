@@ -20,7 +20,9 @@ const loginUser = (req, res) => {
       .then(token =>
         res.status(201).json({
           message: "Succesful login!",
-          token
+          token,
+          appointments: res.appointments,
+          types: res.types
         })
       )
       .catch(err =>  res.status(500).json({
