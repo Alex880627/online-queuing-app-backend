@@ -1,15 +1,13 @@
 const {
-  userValidation,
-  regUserService
-} = require("../services/reg-services");
+  providerValidation,
+  regProviderService
+} = require("../services/reg-provider-services");
 
-const registerUser = (req, res) => {
+const  providerRegistration = (req, res) => {
   const { body } = req;
   if (
-    body.firstname === "" ||
-    body.firstname === undefined ||
-    (body.lastname === "" || body.lastname === undefined) ||
-    (body.username === "" || body.username === undefined) ||
+    body.companyname === "" ||
+    body.companyname === undefined ||
     (body.password === "" || body.password === undefined) ||
     (body.email === "" || body.email === undefined)
   ) {
@@ -25,8 +23,8 @@ const registerUser = (req, res) => {
       message: "Password is too short! (minimum 6 characters)"
     });
   } else {
-    userValidation(body)
-      .then(data => regUserService(data))
+    providerValidation(body)
+      .then(data => regProviderService(data))
       .then(() =>
         res.status(201).json({
           message: "Successful registration!"
@@ -43,4 +41,4 @@ const registerUser = (req, res) => {
 
 
 
-module.exports = registerUser;
+module.exports = { providerRegistration };

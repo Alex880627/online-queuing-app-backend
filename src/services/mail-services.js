@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.GMAIL_ADRESS, //
+    user: process.env.GMAIL_ADDRESS, 
     pass: process.env.GMAIL_PASS
   }
 });
@@ -14,7 +14,7 @@ const sendRegistrationEmail = ( input, dataFromMongo )=> {
     to: `${input.email}`,
     subject: "Successful registration!",
     html: `<h1 style="text-align:center">Dear ${
-      dataFromMongo.username
+      dataFromMongo.username || dataFromMongo.companyname
     }!</h1><hr>
     <p style="text-align:center">Welcome on RESTfull IPA!</p>
     <p style="text-align:center">Please login with your e-mail address and password!</p>

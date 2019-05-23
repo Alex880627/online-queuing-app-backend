@@ -1,12 +1,12 @@
-const User = require("../models/user-model");
+const Provider = require("../models/provider-model");
 const bcrypt = require('bcrypt');
-const { sendRegistrationEmail } = require('../services/mail-services')
+const { sendRegistrationEmail } = require('./mail-services')
 
-const userValidation = data => {
+const providerValidation = data => {
   return new Promise((resolve, reject) => {
-    User.findOne({ username: data.username }, (nameErr, nameResult) => {
+    Provider.findOne({ companyname: data.companyname }, (nameErr, nameResult) => {
       if (nameResult === null) {
-        User.findOne({ email: data.email }, (emailErr, emailResult) => {
+        Provider.findOne({ email: data.email }, (emailErr, emailResult) => {
           if (emailResult === null) {
             return resolve(data);
           } else {
@@ -18,7 +18,7 @@ const userValidation = data => {
         });
       } else {
         nameErr = {
-          msg: "This username is already taken please choose another one!"
+          msg: "This company name is already taken please choose another one!"
         };
         return reject(nameErr);
       }
@@ -26,13 +26,11 @@ const userValidation = data => {
   });
 };
 
-regUserService = data => {
+regProviderService = data => {
   return new Promise((resolve, reject) => {
   bcrypt.hash(data.password, 10, function(err, hash) {
-    const user = new User({
-      firstname: data.firstname,
-      lastname: data.lastname,
-      username: data.username,
+    const user = new Provider({
+      companyname: data.companyname,
       password: hash,
       email: data.email
     });
@@ -51,4 +49,4 @@ regUserService = data => {
   });
 };
 
-module.exports = { userValidation, regUserService };
+module.exports = { providerValidation, regProviderService };
