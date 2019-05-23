@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, trim: true },
   registerdate: { type: Date, default: Date.now },
   appointments: [appointmentsSchema],
-  //favourites: [favouriteServicesSchema],
+  /* favourites: [favouriteServicesSchema], */
 });
 
 module.exports = {

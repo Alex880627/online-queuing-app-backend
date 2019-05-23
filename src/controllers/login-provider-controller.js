@@ -1,10 +1,11 @@
-const { login } = require("../services/login-services");
+const { loginAndAuth } = require("../services/login-services");
+const { Provider } = require("../models/provider-models");
 
-const loginUser = (req, res) => {
+const loginProvider = (req, res) => {
   const { body } = req;
   if (
     (body.password === "" ||
-      body.password === undefined) ||
+    body.password === undefined ) ||
     (body.email === "" || body.email === undefined)
   ) {
     res.status(500).json({
@@ -15,17 +16,17 @@ const loginUser = (req, res) => {
       message: "Invalid e-mail addres!"
     });
   } else {
-    login(body)
+    loginAndAuth(body, Provider)
       .then(token =>
         res.status(201).json({
           message: "Succesful login!",
           token
         })
       )
-      .catch(err => res.status(500).json({
+      .catch(err =>  res.status(500).json({
         message: err.msg
       }))
   }
 };
 
-module.exports = { loginUser };
+module.exports = { loginProvider };
