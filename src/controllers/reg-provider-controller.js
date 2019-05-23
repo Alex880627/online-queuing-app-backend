@@ -3,7 +3,7 @@ const {
   regProviderService
 } = require("../services/reg-provider-services");
 
-const userRegistration= (req, res) => {
+const  providerRegistration = (req, res) => {
   const { body } = req;
   if (
     body.companyname === "" ||
@@ -41,4 +41,4 @@ const userRegistration= (req, res) => {
 
 
 
-module.exports = userRegistration;
+module.exports = { providerRegistration };

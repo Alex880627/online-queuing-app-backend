@@ -22,4 +22,4 @@ const login = data => {
   });
 };
 
-module.exports = login;
+module.exports = { login };

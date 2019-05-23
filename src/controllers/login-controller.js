@@ -1,4 +1,4 @@
-const login = require("../services/login-services");
+const { login } = require("../services/login-services");
 
 const loginUser = (req, res) => {
   const { body } = req;
