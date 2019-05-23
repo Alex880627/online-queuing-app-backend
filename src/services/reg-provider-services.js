@@ -1,4 +1,4 @@
-const Provider = require("../models/provider-models");
+const { Provider } = require("../models/provider-models");
 const bcrypt = require('bcrypt');
 const { sendRegistrationEmail } = require('./mail-services')
 
@@ -29,12 +29,13 @@ const providerValidation = data => {
 regProviderService = data => {
   return new Promise((resolve, reject) => {
   bcrypt.hash(data.password, 10, function(err, hash) {
-    const user = new Provider({
+    const provider = new Provider({
       companyname: data.companyname,
       password: hash,
-      email: data.email
+      email: data.email,
+      providerType: data.providerType
     });
-      user.save((err, savedData) => {
+      provider.save((err, savedData) => {
         if (err) {
           err = {
             msg: 'Registration failed!'
