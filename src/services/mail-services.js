@@ -9,7 +9,6 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendRegistrationEmail = ( input, dataFromMongo )=> {
-  console.log(input, dataFromMongo);
   const mailOptions = {
     from: "kozosmarika@gmail.com",
     to: `${input.email}`,

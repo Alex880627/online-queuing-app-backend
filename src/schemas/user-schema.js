@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 
-/* const favouriteServicesSchema = new mongoose.Schema({
-
-}); */
-
 const appointmentsSchema = new mongoose.Schema({
   serviceName: {
     type: String,
@@ -11,7 +7,7 @@ const appointmentsSchema = new mongoose.Schema({
   providerName: {
     type: String,
   },
-  appointmentDate: {  //  Frontend should create this with new Date(blahblah)
+  appointmentDate: {
     type: Date,
   },
 });
@@ -23,12 +19,10 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true, trim: true },
   email: { type: String, required: true, trim: true },
   registerdate: { type: Date, default: Date.now },
-  appointments: [], //  appointment IDs go here
-  /* favourites: [favouriteServicesSchema], */
+  appointments: [],
 });
 
 module.exports = {
   userSchema,
   appointmentsSchema,
-  /* favouriteServicesSchema, */
 };

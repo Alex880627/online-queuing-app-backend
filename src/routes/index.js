@@ -15,6 +15,6 @@ router.post("/login-provider", loginProvider);
 router.post("/user-registration", userRegistration);
 router.post("/provider-registration", providerRegistration);
 router.post("/selected-type", getProvidersAndServicesByType);
-router.post("/provider-main", getSchedule); //  not working yet
+router.post("/provider-main", getSchedule);
 
 module.exports = router;

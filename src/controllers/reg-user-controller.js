@@ -40,7 +40,4 @@ const userRegistration= (req, res) => {
   }
 };
 
-
-
-
 module.exports = { userRegistration };

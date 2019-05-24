@@ -51,4 +51,7 @@ regUserService = data => {
   });
 };
 
-module.exports = { userValidation, regUserService };
+module.exports = {
+  userValidation,
+  regUserService
+};

@@ -2,7 +2,7 @@ const { getServiceWeeklySchedule, getDailySchedule } = require('../services/find
 
 const getSchedule = (req, res) =>
   getServiceWeeklySchedule(req.body._id)
-    .then(ez => Object.values(ez).map(az => getDailySchedule(az)))
+    .then(weeklySchedule => Object.values(weeklySchedule).map(dailyScheduleId => getDailySchedule(dailyScheduleId)))
     .catch(error => res.send(error));
 
 module.exports = {
