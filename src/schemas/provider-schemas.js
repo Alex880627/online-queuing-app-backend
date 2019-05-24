@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const dailyScheduleSchema = new mongoose.Schema({ //  Provider should fill this up using mongoose add key (Schema#add) SHOULD BE BOOLEAN WITH FALSE
+const dailyScheduleSchema = new mongoose.Schema({
   availableDay: {
     type: Boolean,
   },
 });
 
-const weeklyScheduleSchema = new mongoose.Schema({  //  dailySchema IDs come here
+const weeklyScheduleSchema = new mongoose.Schema({
   monday: mongoose.Schema.ObjectId,
   tuesday: mongoose.Schema.ObjectId,
   wednesday: mongoose.Schema.ObjectId,
@@ -37,7 +37,7 @@ const providerSchema = new mongoose.Schema({
   password: { type: String, required: true, trim: true },
   email: { type: String, required: true, trim: true },
   registerdate: { type: Date, default: Date.now },
-  services: [], // service IDs go here
+  services: [],
 });
 
 module.exports = {

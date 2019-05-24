@@ -24,4 +24,7 @@ const authJwt = (req, res, next) => {
   }
 };
 
-module.exports = { generateJwt, authJwt };
+module.exports = {
+  generateJwt,
+  authJwt
+};

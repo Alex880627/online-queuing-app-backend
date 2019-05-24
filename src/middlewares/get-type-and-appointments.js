@@ -3,9 +3,11 @@ const { getAppointmentsOfUser } = require('../services/type-and-appointment-serv
 
 const typeAndAppointmentsGetter = (req, res, next) => {
   const { body } = req;
-  getTypeOfServices().then(data => res.types = data);
-  getAppointmentsOfUser(body).then(data=> res.appointments = data).catch(err=> console.log(err));
-  next();
+    getTypeOfServices().then(data => res.types = data);
+      getAppointmentsOfUser(body).then(data=> res.appointments = data).catch(err=> console.log(err));
+        next();
 }
 
-module.exports = { typeAndAppointmentsGetter };
+module.exports = {
+  typeAndAppointmentsGetter
+};
