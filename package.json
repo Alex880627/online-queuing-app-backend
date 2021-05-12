@@ -25,7 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb-promise": "0.0.4",
     "mongoose": "^5.5.10",
-    "nodemailer": "^6.1.1",
+    "nodemailer": "^6.4.16",
     "nodemon": "^1.19.0"
   },
   "devDependencies": {
